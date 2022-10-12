@@ -1,8 +1,8 @@
 [
-  {
-    "InterestRate": 4.55,
-    "MonthlyPayment": 2548,
-    "PurchaseCosts": 12500,
-    "YourOwnMoney": 12500
-  }
+    {
+        "InterestRate": 4.57,
+        "MonthlyPayment": 2554,
+        "PurchaseCosts": 12500,
+        "YourOwnMoney": 12500
+    }
 ]
