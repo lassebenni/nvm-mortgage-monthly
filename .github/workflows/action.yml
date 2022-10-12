@@ -9,16 +9,14 @@ on:
 jobs:
   scheduled:
     runs-on: ubuntu-latest
+    container: python:3.9
     steps:
     - name: Check out this repo
       uses: actions/checkout@v2
-    - name: Fetch latest data
-      run: |-
-        curl --location --request POST 'https://mijn.makelaarsland.nl/NvmSearch/GetMortgagePayment' \
-          --header 'Content-Type: application/json' \
-          --header 'Cookie: .MLLOGIN=46D420AF9000124EAFD8A5851299C5013C2318E0B5A1E5E5252407BF3655E24958EEF6548F0548C9E60C7290E46AAC5B113BB7FA3EB244AA494F96908C9BCC645A4DD627764E21C970103536459E02D9B1256D148FE224EF19FC2D76BEEC1CE612940FD0; ASP.NET_SessionId=cbircdx5kkoshcdp42ovz4i0' \
-          --data-raw '{"purchasePrice":"500000","yourOwnMoney":12500,"interestDuration":20,"nhg":false,"nhgBoundary":"355000"}'\
-          | jq '[.]' > mortgage.json
+    - name: pip install
+      run: pip install -r requirements.txt
+    - name: run
+      run: python main.py
     - name: Commit and push if it changed
       run: |-
         git config user.name "Automated"
