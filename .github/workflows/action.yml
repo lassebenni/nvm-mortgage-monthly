@@ -3,8 +3,8 @@ name: Scrape NVM Mortgage payments
 on:
   push:
   workflow_dispatch:
-  schedule:
-    - cron:  '0 12 * * *'
+#   schedule:
+#     - cron:  '0 12 * * *'
 
 jobs:
   scheduled:
